@@ -1,0 +1,19 @@
+package com.grkmonder.todoapp.controller;
+
+import org.springframework.stereotype.Controller;
+
+import com.grkmonder.todoapp.services.TaskService;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Controller
+@AllArgsConstructor
+@NoArgsConstructor
+public class TaskController {
+	
+	private final TaskService taskService;
+	
+	
+
+}

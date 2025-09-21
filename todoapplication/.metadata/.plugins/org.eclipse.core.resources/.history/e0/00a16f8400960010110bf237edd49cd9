@@ -1,0 +1,5 @@
+package com.grkmonder.todoapp.repo;
+
+public interface TaskRepository {
+
+}

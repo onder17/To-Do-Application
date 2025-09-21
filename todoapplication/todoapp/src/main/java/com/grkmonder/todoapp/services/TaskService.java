@@ -1,0 +1,42 @@
+package com.grkmonder.todoapp.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.grkmonder.todoapp.models.Task;
+import com.grkmonder.todoapp.repo.TaskRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class TaskService {
+
+	private final TaskRepository taskRepository;
+	
+	public List<Task> getAllTasks() {
+		return taskRepository.findAll();
+	}
+	
+	public void createTask(String name) {
+		Task task = new Task();
+		task.setName(name);
+		task.setStatus(false); //default value
+		taskRepository.save(task);
+		}
+
+	public void deleteTask(Long id) {
+		taskRepository.deleteById(id);
+		
+	}
+
+	public void toggleTask(Long id) {
+		Task task = taskRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid task id"));
+		task.setStatus(!task.isStatus());
+		taskRepository.save(task);
+		
+	}
+
+}

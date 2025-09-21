@@ -1,0 +1,5 @@
+package com.grkmonder.todoapp.models;
+
+public class Task {
+
+}
